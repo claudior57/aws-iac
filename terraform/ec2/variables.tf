@@ -3,12 +3,12 @@ variable "tags" {
   default = {
     Team        = "DevOps"
     Environment = "Staging"
-    Purpose    = "Basic cloud foundation setup"
+    Purpose     = "Basic cloud foundation setup"
     Terraform   = "true"
   }
 }
 
-variable ssh_public_key {
+variable "ssh_public_key" {
   default = "../../id_rsa_iaclab.pub"
 }
 

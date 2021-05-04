@@ -1,10 +1,6 @@
 #!/bin/bash
 
-#FOLDERS=("vpc")
-#FOLDERS=("sgr")
-#FOLDERS=("ec2")
-#FOLDERS=("sns")
-FOLDERS=("cloudwatch")
+FOLDERS=("vpc" "sgr" "ec2" "sns" "cloudwatch")
 
 echo "----- Terraform init -----"
 

@@ -7,16 +7,16 @@ resource "aws_key_pair" "iaclab-user" {
 }
 
 module "ec2_cluster" {
-  source         = "terraform-aws-modules/ec2-instance/aws"
-  name           = "nginx-instance"
-  instance_count = 1
+  source                      = "terraform-aws-modules/ec2-instance/aws"
+  name                        = "nginx-instance"
+  instance_count              = 1
   associate_public_ip_address = true
-  ami                    = "ami-048f6ed62451373d9"
-  instance_type          = "t2.micro"
-  key_name               = aws_key_pair.iaclab-user.key_name
-  monitoring             = true
-  vpc_security_group_ids = [ data.terraform_remote_state.sgr.outputs.public_sgr_basic_id ]
-  subnet_id = data.terraform_remote_state.vpc.outputs.public_subnets[0]
+  ami                         = "ami-048f6ed62451373d9"
+  instance_type               = "t2.micro"
+  key_name                    = aws_key_pair.iaclab-user.key_name
+  monitoring                  = true
+  vpc_security_group_ids      = [data.terraform_remote_state.sgr.outputs.public_sgr_basic_id]
+  subnet_id                   = data.terraform_remote_state.vpc.outputs.public_subnets[0]
 
   user_data_base64 = base64encode(file(var.user_data))
 

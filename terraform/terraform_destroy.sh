@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#FOLDERS=("vpc")
-#FOLDERS=("sgr")
-#FOLDERS=("ec2")
 FOLDERS=("cloudwatch" "sns" "ec2" "sgr" "vpc")
 
 echo "----- Terraform Destroy -----"

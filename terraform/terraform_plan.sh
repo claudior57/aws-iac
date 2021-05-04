@@ -1,10 +1,11 @@
 #!/bin/bash
 
-#FOLDERS=("vpc")
+#FOLDERS=("vpc" "sgr" "ec2" "sns" "cloudwatch")
+FOLDERS=("vpc")
 #FOLDERS=("sgr")
 #FOLDERS=("ec2")
 #FOLDERS=("sns")
-FOLDERS=("cloudwatch")
+#FOLDERS=("cloudwatch")
 
 echo "----- Terraform Plan -----"
 
