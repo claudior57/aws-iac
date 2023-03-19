@@ -2,14 +2,14 @@ terraform {
   backend "s3" {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/sgr-staging.tfstate"
   }
 }
 
 provider "aws" {
   region  = "us-east-1"
-  profile = "default"
+  profile = "iac_lab"
 }
 
 data "terraform_remote_state" "vpc" {
@@ -17,7 +17,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/vpc-staging.tfstate"
   }
 }
