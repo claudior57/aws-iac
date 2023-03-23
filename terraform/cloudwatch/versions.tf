@@ -2,14 +2,14 @@ terraform {
   backend "s3" {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/cloudwatch-staging.tfstate"
   }
 }
 
 provider "aws" {
   region  = "us-east-1"
-  profile = "default"
+  profile = "iac_lab"
 }
 
 data "terraform_remote_state" "vpc" {
@@ -17,7 +17,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/vpc-staging.tfstate"
   }
 }
@@ -27,7 +27,7 @@ data "terraform_remote_state" "sgr" {
   config = {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/sgr-staging.tfstate"
   }
 }
@@ -37,7 +37,7 @@ data "terraform_remote_state" "sns" {
   config = {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/sns-staging.tfstate"
   }
 }
@@ -46,7 +46,7 @@ data "terraform_remote_state" "ec2" {
   config = {
     bucket  = "iaclab-terraform-states"
     region  = "us-east-1"
-    profile = "default"
+    profile = "iac_lab"
     key     = "staging/ec2-staging.tfstate"
   }
 }
