@@ -40,9 +40,9 @@ demo - aws basic iac configs for a working cluster (should be used only for demo
 - This repo has some supporting scripts for building the Terraform modules individually for better visualization. For triggering everything on the proper other for the demo please follow the instructions bellow:
   ```
   cd terraform
-  terraform_init.sh
-  terraform_plan.sh
-  terraform_apply.sh
+  ./terraform_init.sh
+  ./terraform_plan.sh
+  ./terraform_apply.sh
   
   ```
 
@@ -57,22 +57,13 @@ demo - aws basic iac configs for a working cluster (should be used only for demo
   ssh ec2-user@34.239.139.80 -i ../id_rsa_iaclab
   ```
 
-- after running the command terraform apply you will need to confirm the email subscription on the sns topic
-
+- if you want to test the sns notification alarm to your email you will need to confirm the email subscription on the sns topic
 
 - When you finish with the demo please run the Terraform_destroy.sh, and verify if the resources were destroyed properly
   ```
   cd terraform
-  terraform_destroy.sh
+  ./terraform_destroy.sh
   ```
-
-
-- run terraform apply and verify the resources that were created
-  ```
-    terraform apply
-  ```
-
-
 
 # Additional information:
   this project uses the modules for: 
