@@ -27,7 +27,7 @@ mkdir -p /etc/nginx/www
 cat > /etc/nginx/www/index.html <<'EOF'
 <h1> Hello There</h1>
   <p>
-    This webpage is serverd through nginx
+    This webpage is part of a lab and is served through nginx
   </p>
 EOF
 chmod 0755  /etc/nginx/www

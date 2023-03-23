@@ -1,9 +1,8 @@
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "3.0.0"
-  name    = var.vpc_name
-  cidr    = var.cidr_block
-  azs     = var.azs_list
+  source = "terraform-aws-modules/vpc/aws"
+  name   = var.vpc_name
+  cidr   = var.cidr_block
+  azs    = var.azs_list
 
   private_subnets                    = var.private_subnets
   public_subnets                     = var.public_subnets

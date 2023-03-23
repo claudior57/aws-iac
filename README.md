@@ -1,5 +1,5 @@
 # aws-iac
-demo - aws basic iac configs for a working cluster (should be used only for demonstration purposes NOT READY FOR PRODUCTION)
+demo - aws basic iac configs for a working cluster (should be used only for demonstration purposes NOT READY FOR PRODUCTION), use it at your own discretion
 ### Requirements:
 
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -37,22 +37,42 @@ demo - aws basic iac configs for a working cluster (should be used only for demo
     ssh-keygen -f ./id_rsa_iaclab -C devops@iaclab.com
   ```
 
-- run terraform plan and verify the resources that will be created
+- This repo has some supporting scripts for building the Terraform modules individually for better visualization. For triggering everything on the proper other for the demo please follow the instructions bellow:
   ```
-    terraform init
+  cd terraform
+  terraform_init.sh
+  terraform_plan.sh
+  terraform_apply.sh
+  
   ```
 
-- run terraform plan and verify the resources that will be created
+- after running the commands you will be able to access the page from the nginx server on the browser, and do an ssh to it using the key generated on the root folder of this repo,(ec2 ip output example:34.239.139.80)
+  ##### wget
   ```
-    terraform plan
+  wget --no-check-certificate "https://52.207.163.121/"
+  cat index.html
+  ```  
+  ##### ssh
   ```
+  ssh ec2-user@34.239.139.80 -i ../id_rsa_iaclab
+  ```
+
+- after running the command terraform apply you will need to confirm the email subscription on the sns topic
+
+
+- When you finish with the demo please run the Terraform_destroy.sh, and verify if the resources were destroyed properly
+  ```
+  cd terraform
+  terraform_destroy.sh
+  ```
+
 
 - run terraform apply and verify the resources that were created
   ```
     terraform apply
   ```
 
-- after running the command terraform apply you will need to confirm the email subscription on the sns topic 
+
 
 # Additional information:
   this project uses the modules for: 

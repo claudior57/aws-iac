@@ -1,6 +1,5 @@
-module "myip" {
-  source  = "4ops/myip/http"
-  version = "1.0.0"
+data "http" "myip" {
+  url = "http://ipv4.icanhazip.com"
 }
 
 module "public-sgr-basic" {
@@ -17,8 +16,8 @@ module "public-sgr-basic" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      description = "Allow ssh from the office/my_home"
-      cidr_blocks = "${module.myip.address}/32"
+      description = "Allow ssh from my home office"
+      cidr_blocks = "${chomp(data.http.myip.body)}/32"
     }
   ]
   egress_rules = ["all-all"]
